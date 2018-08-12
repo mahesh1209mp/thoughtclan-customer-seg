@@ -1,0 +1,73 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>All Groups</title>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+	.card {
+	    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	    transition: 0.3s;
+	    width: 40%;
+	    border-radius: 5px;
+	}
+	.card:hover {
+	    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+	}
+	img {
+	    border-radius: 5px 5px 0 0;
+	}
+	.container {
+	    padding: 2px 16px;
+	}
+	.card-header{
+	    font: bold;
+	    font-size: 25px;
+	}
+	
+	h2 {
+	margin: 20px !important;
+}
+
+.form_footer{
+	margin-bottom: 0px;
+}
+
+.bottom_up{
+	width: 100%;
+	border-radius: 0 0 5px 5px;
+	height: 55px;
+	color: #ffffff;
+	background: #c60000;
+	margin-bottom: 0px;
+	
+
+}
+
+</style>
+</head>
+<body style="background: #000000;">
+
+<div th:include="@{/nav-bar.html}"  style="display: block !important;"></div>
+
+<h2 align="center" style="color: #c60000;">GROUP'S LIST</h2>
+<div class="container">
+  <div class='row' >
+  <div class='col-md-4' th:each="groups : ${group_list}" style="display: block; margin-bottom: 30px;" >
+  <div class="card" style="width: 100%;">
+    <div class="card-header" align="center" th:text="${groups.groupName}" style="color: #c60000;"></div>
+    <div class="card-body" align="center" th:text="${groups.groupInfo}"></div> 
+    <form th:action="@{/{id}(id=${groups.id})}" method="post" class="form_footer"><input type="submit" value="View Group" class="bottom_up"></form>
+  </div>
+  </div>
+  </div>
+</div>
+
+
+</body>
+</html>

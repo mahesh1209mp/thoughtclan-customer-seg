@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<style type="text/css">
+
+h2,h4{
+	color: #ffffff !important;
+}
+
+h4{
+	margin-bottom: 25px !important;
+}
+
+.bottom_button {
+	  text-align: justify;
+	  display: inline-block;
+	  margin-left: 34%;
+  }
+
+</style>
+
+</head>
+<body>
+
+<div th:include="@{/nav-bar.html}"></div>
+
+<div th:object="${group_info}">
+<h2 align="center" th:text="${group_info.groupName}"></h2>
+</div>
+
+<div th:object="${group_info}">
+<h4 align="center" th:text="${group_info.groupInfo}"></h4>
+</div>
+
+ 	<div th:include="@{/display-list.html}"></div>
+	
+	<div class="bottom_button" style="margin-bottom: 25px;">
+	
+	<a href="customer">
+	<input type="button" value="All Customers" style="display: inline-block !important;
+	margin-left: 10px !important;
+	color: #ffffff !important;
+	background-color: #c60000 !important;
+	border-radius: 5px !important;
+	height: 50px !important;
+	width: 180px !important;" > </a>
+	
+	<a href="all-groups">
+	<input type="button" value="Show All Groups" style="display: inline-block !important;
+	margin-left: 10px !important;
+	color: #ffffff !important;
+	background-color: #c60000 !important;
+	border-radius: 5px !important;
+	height: 50px !important;
+	width: 180px !important;">
+	</a>
+	</div> 
+</body>
+</html>

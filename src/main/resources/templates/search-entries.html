@@ -1,0 +1,133 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<style type="text/css">
+
+body {
+	background-image: url("../images/search-bck.jpg");
+	background-color: #000000;
+	background-repeat: no-repeat;
+	background-size: cover;
+	}
+	
+.form-contatiner{
+	background: #c9c9c9;
+	width: 30%;
+	border-radius: 5px;
+	padding: 15px;
+	margin: 3% auto 1% auto;
+}
+
+/* Set a style for all buttons */
+button {
+    width: 100%;
+	padding: 5px;
+	height: 7%;
+	background: #c60000;
+	border:none;
+	margin-top: 15px !important;
+	margin-bottom: 5px;
+	color: #ffffff !important;
+	text-align: center;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+
+</style>
+
+
+</head>
+<body>
+
+<div th:include="@{/nav-bar.html}"></div>
+
+<div class="form-contatiner">
+<form action="#" th:action="@{/filter}" th:object="${helperFilter}" onsubmit="checkForm()" method="post" >
+    	Name : <br>
+    <input id="c_name" th:field="*{name}" style="width: 95%"/> 
+    <br>
+        Age :<br> 
+        <div align="left">
+        Min :
+    <input type="text" id="c_minage" th:field="*{minAge}"  style="display: inline-block; width: 36%;" />
+    	Max :
+    <input type="text" id="c_maxage" th:field="*{maxAge}" style="display: inline-block ; width: 37%;"/>  </div>
+    <br>
+   <div>Gender :
+    <select id="c_gender"  th:field="*{gender}" style="width: 78%">  
+    <option value="null" selected="selected" >Select your Gender</option>
+    <option value="male">Male</option>
+  	<option value="female">Female</option>
+  	</select></div>
+     
+   
+        City :<br> 
+    <input type="text" id="c_city" th:field="*{city}" style="width: 95%"/> 
+    <br>
+    
+        State :<br>
+    <input type="text" id="c_state" th:field="*{state}" style="width: 95%"/>
+     <br>
+     
+        Country : <br>
+    <input type="text" id="c_country" th:field="*{country}" style="width: 95%"/>
+     <br>
+    <button type="submit"  >Search</button>
+
+  </form>
+</div>
+
+
+<!-- FORM VALIDATION -->
+
+<script type="text/javascript">
+var checkForm = function(){
+	
+	var name= document.getElementById("c_name").value;
+	var minAge= document.getElementById("c_minage").value;
+	var maxAge= document.getElementById("c_maxage".value);
+	var genderC= document.getElementById("c_gender");
+	var gender = genderC.options[genderC.selectedIndex].value;
+	var city= document.getElementById("c_city").value;
+	var state= document.getElementById("c_state").value;
+	var country= document.getElementById("c_country").value;
+	
+	console.log(name);
+	console.log(city);
+	console.log(country);
+	console.log(state);
+	console.log(minAge);
+	var err="";
+	var errNum = 0;
+	
+	console.log(gender);
+	
+	/* if(minAge>maxAge){
+		errNum++;
+		err = errNum+" .Min Age should be less than Max age.\n";
+	}
+	
+	if(name=="" && minAge==0 && maxAge==0 && gender=="null" && city =="" && state == "" && country == ""){
+		errNum++;
+		var temp=errNum+" .Some of the values must be selected.\n";
+		err += temp;
+	}
+	 */
+	if (errNum>0) {
+        alert(err);
+        return false;
+   }
+
+   else{
+        return true;
+   }
+   
+	errNum=0;
+}
+
+</script>
+</body>
+</html>

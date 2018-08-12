@@ -1,0 +1,51 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Customer Segmentation</title>
+  <style >
+  .bottom_button {
+	  text-align: justify;
+	  display: inline-block;
+	  margin-left: 38%;
+  }
+  
+  
+ 	.header {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	color: #c60000;
+	font: bold;
+	font-size: 40px;
+	font-family: "Bookman", serif;
+}
+	
+  </style>
+</head>
+<body >
+<div th:include="@{/nav-bar.html}"></div>
+
+<h1 align="center" class="header">CUSTOMER'S LIST</h1>
+
+ 	<div th:include="@{/display-list.html}"></div>
+	
+	<div class="bottom_button" style="margin-bottom: 25px;">
+	<a href="all-groups" >
+	<input type="button" value="View All Groups" style="display: inline-block !important;
+	margin-left: 10px !important;
+	color: #ffffff !important;
+	background-color: #c60000 !important;
+	border-radius: 5px !important;
+	height: 50px !important;
+	width: 180px !important;"> </a>
+	
+	<a href="filter">
+	<input type="button" value="Filter Records" style="display: inline-block !important;
+	margin-left: 10px !important;
+	color: #ffffff !important;
+	background-color: #c60000 !important;
+	border-radius: 5px !important;
+	height: 50px !important;
+	width: 180px !important;">
+	</a>
+	</div> 
+</body>
+</html>

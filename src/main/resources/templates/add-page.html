@@ -1,0 +1,85 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<style type="text/css">
+
+body{
+
+	background-color: #000000 !important;
+
+
+}
+
+.form-contatiner{
+	background: #c9c9c9;
+	width: 30%;
+	border-radius: 5px;
+	padding: 15px;
+	margin: 3% auto 1% auto;
+}
+
+/* Set a style for all buttons */
+.lowerBtn{
+    width: 100%;
+	padding: 5px;
+	height: 7%;
+	background: #c60000;
+	border:none;
+	margin-top: 15px !important;
+	margin-bottom: 5px;
+	color: #ffffff !important;
+	text-align: center;
+}
+
+</style>
+
+</head>
+<body >
+
+<div th:include="@{/nav-bar.html}"></div>
+
+<h2 align="center" style="color: #ffffff">ADD NEW CUSTOMER</h2>
+
+	<div class="form-contatiner">
+	
+	<h2 align="center">ADD NEW CUSTOMER</h2>
+
+<form action="#" th:action="@{/add}" th:object="${adCustomer}" method="post">
+
+    	Name : 
+    <input type="text" th:field="*{name}" placeholder="Name" required/>  
+    <br><br>
+    
+        Age : 
+    <input type="text" th:field="*{age}" placeholder="Age" required/> 
+    <br><br>
+    
+        Gender : 
+     	<select th:field="*{gender}"> 
+     	<option value="null" selected="selected" disabled="disabled">Select your Gender</option>
+    		<option value="Male">Male</option>
+  			<option value="Female">Female</option>
+  		</select>
+     <br><br>
+    
+        City : 
+    <input type="text" th:field="*{city}" placeholder="City" required/> 
+    <br><br>
+    
+        State : 
+    <input type="text" th:field="*{state}" placeholder="State" required/>
+     <br><br>
+    
+        Country : 
+    <select th:field="*{country}" required>
+  			<option value="null" selected="selected" disabled>Select your Country</option>
+  			<option th:each = "country: ${countries}" th:value = "${country.cName}" th:text="${country.cName}"></option>
+  		</select>
+     <br><br><br><br>
+    
+    <input type="submit" value="Add Entry" id="lowerBtn"/>
+    
+  </form>
+
+</div>
+</body>
+</html>

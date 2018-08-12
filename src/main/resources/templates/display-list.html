@@ -1,0 +1,60 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<style>
+	body {
+		background-color: #000000;
+	}
+	
+	table{
+		align: center;
+		border:maroon;
+	}
+	
+	td {
+		color: #ffffff;
+		font-style: italic;
+		text-align: center;
+	}
+	
+	th {
+		color: #c60000;
+		text-transform: uppercase;
+		text-align: center;
+	}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+ 	<div th:if="${not #lists.isEmpty(customers_model)}" >
+	<table class="table table-bordered" >
+		<thead><tr>
+			<th>Name</th>
+			<th>Age</th>
+			<th>Gender</th>
+			<th>City</th>
+			<th>State</th>
+			<th>Country</th>
+		</tr></thead>
+		<tbody><tr th:each="customer : ${customers_model}">
+				<td th:text="${customer.name}" ></td>
+				<td th:text="${customer.age}" ></td>
+				<td th:text="${customer.gender}" ></td>
+				<td th:text="${customer.city}" ></td>
+				<td th:text="${customer.State}" ></td>
+				<td th:text="${customer.Country}"></td>
+			</tr>
+		</tbody>	
+	</table>
+	</div> 
+	</div>
+</body>
+</html>
